@@ -46,7 +46,6 @@ export const signup = async (req, res) => {
         _id: newUser._id,
         fullName: newUser.fullName,
         username: newUser.username,
-        password,
         profilePic: newUser.profilePic,
       });
     } else {
@@ -95,8 +94,8 @@ export const login = async (req, res) => {
 
 export const logout = (req, res) => {
   try {
-     res.cookie("jwt", "", { maxAge: 0 });
-     res.status(200).json({message:"Logged Out successfully"})
+    res.cookie("jwt", "", { maxAge: 0 });
+    res.status(200).json({ message: "Logged Out successfully" });
   } catch (error) {
     console.log("Error in login controller", error.message);
     res.status(500).json({
